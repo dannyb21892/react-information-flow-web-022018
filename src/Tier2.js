@@ -7,18 +7,18 @@ export default class Tier2 extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {
-      childColor: getReducedColor(this.props.color),
-    }
   }
 
   render() {
     // hard coded color values have been added below, though they won't be
     // present in our solution. What should they be replaced with?
     return (
-      <div className="tier2" style={{backgroundColor: this.props.color, color: this.props.color}}>
-        <Tier3 color={"#0F0"} />
-        <Tier3 color={"#F00"} />
+      <div onClick={(e)=>{
+        e.stopPropagation()
+        this.props.changeColor(2)
+      }} className="tier2" style={{backgroundColor: this.props.color2, color: this.props.color2, zIndex: 2}}>
+        <Tier3 color3={this.props.color3} changeColor={this.props.changeColor}/>
+        <Tier3 color3={this.props.color3} changeColor={this.props.changeColor}/>
       </div>
     )
   }
